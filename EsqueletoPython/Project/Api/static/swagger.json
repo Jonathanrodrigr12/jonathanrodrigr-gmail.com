@@ -1,0 +1,522 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a GenericObject",
+        "version": "1.0.0",
+        "title": "Generic Object API"
+    },
+    "tags": [
+        {
+            "name": "ReArquitectura",
+            "description": "Generic Object"
+        }
+    ],
+    "paths": {
+        "/GenericObjectTopology": {
+            "get": {
+                "tags": [
+                    "ReArquitectura"
+                ],
+                "summary": "Generic Object",
+                "operationId": "Generic_Object",
+                "description": "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "search results matching criteria",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Topology"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "bad input parameter"
+                    }
+                }
+            }
+        },
+        "/GenericObjectLecturas": {
+            "get": {
+                "tags": [
+                    "ReArquitectura"
+                ],
+                "summary": "Generic Object",
+                "operationId": "Generic_Object_Lecturas",
+                "description": "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "search results matching criteria",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Lecturas"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "bad input parameter"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Topology": {
+            "type": "object",
+            "properties": {
+                "guid_Identifier": {
+                    "type": "string",
+                    "format": "uuid",
+                    "example": "d290f1ee-6c54-4b01-90e6"
+                },
+                "service_Point_Variable": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServicePointVariable"
+                    }
+                },
+                "service_Point": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServicePoint"
+                    }
+                },
+                "device": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Device"
+                    }
+                },
+                "relation_Device": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RelationDevice"
+                    }
+                }
+            }
+        },
+        "Lecturas": {
+            "properties": {
+                "guid_Lecturas": {
+                    "type": "string",
+                    "format": "uuid",
+                    "example": "d290f1ee-6c54-4b01-90e6"
+                },
+                "identifier_Service": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "fount": {
+                    "type": "string",
+                    "example": "HES EEUU"
+                },
+                "type": {
+                    "type": "string",
+                    "example": "Event"
+                },
+                "version_Identifier": {
+                    "type": "integer",
+                    "example": 123
+                },
+                "date_Utc": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2020-07-21T17:32:28"
+                },
+                "variable": {
+                    "type": "string",
+                    "example": "KRW"
+                },
+                "identifier_Device": {
+                    "type": "string",
+                    "example": 123
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2020-07-21T17:32:28"
+                },
+                "date_Initial": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2020-07-21T17:32:28"
+                },
+                "date_Local": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2020-07-21T17:32:28"
+                },
+                "flag_DST": {
+                    "type": "string",
+                    "example": "ture"
+                },
+                "identifier_Canal": {
+                    "type": "integer",
+                    "example": 1234
+                },
+                "uom": {
+                    "type": "string",
+                    "example": "KWR"
+                },
+                "flags": {
+                    "type": "string",
+                    "format": "json",
+                    "example": {
+                        "field": 123,
+                        "value": 1234
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "example": 24
+                },
+                "date_Creation": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2020-07-21T17:32:28"
+                },
+                "identifier_Log": {
+                    "type": "integer",
+                    "example": 123
+                },
+                "id": {
+                    "type": "integer",
+                    "example": 12
+                },
+                "event_Id": {
+                    "type": "integer",
+                    "example": 44
+                },
+                "id_Reading": {
+                    "type": "integer",
+                    "example": 45
+                },
+                "value_Initial": {
+                    "type": "integer",
+                    "example": 56
+                },
+                "usage": {
+                    "type": "string",
+                    "example": "principal"
+                },
+                "validation_Usage": {
+                    "type": "string",
+                    "example": "principal ON"
+                },
+                "estimated": {
+                    "type": "string",
+                    "example": false
+                },
+                "validation_Estimated": {
+                    "type": "string",
+                    "example": "validation ON"
+                },
+                "edited": {
+                    "type": "string",
+                    "example": true
+                },
+                "validation_Edited": {
+                    "type": "string",
+                    "example": "validation OFF"
+                },
+                "state": {
+                    "type": "string",
+                    "example": "backup"
+                }
+            }
+        },
+        "Device": {
+            "properties": {
+                "device_Identifier": {
+                    "type": "string",
+                    "example": "ION"
+                },
+                "type": {
+                    "type": "string",
+                    "example": "BackUp"
+                },
+                "metering_Type": {
+                    "type": "string",
+                    "example": "BackUp"
+                },
+                "serial_Number": {
+                    "type": "string",
+                    "example": "123-455-asfe"
+                },
+                "model": {
+                    "type": "string",
+                    "example": "2019-32-aecd"
+                },
+                "brand": {
+                    "type": "integer",
+                    "example": 1236
+                },
+                "description_Device": {
+                    "type": "string",
+                    "example": "model one"
+                },
+                "account_Number": {
+                    "type": "string",
+                    "example": "123kduaf-13312."
+                },
+                "status_Device": {
+                    "type": "string",
+                    "example": "ON"
+                },
+                "category_Device": {
+                    "type": "string",
+                    "example": "123kduaf-13312."
+                },
+                "device_Master_Id": {
+                    "type": "string",
+                    "example": "123kduaf-13312."
+                },
+                "remarks": {
+                    "type": "string",
+                    "example": "ion-3021"
+                },
+                "ct": {
+                    "type": "string",
+                    "example": "min--moz-device"
+                },
+                "pt": {
+                    "type": "string",
+                    "example": "pr-moz-device"
+                },
+                "reading_User": {
+                    "type": "string",
+                    "example": "Automatic"
+                },
+                "read_Password": {
+                    "type": "string",
+                    "example": "723jdkia*"
+                },
+                "write_User": {
+                    "type": "string",
+                    "example": "write Automatic"
+                },
+                "write_Password": {
+                    "type": "string",
+                    "example": "8237kaue*"
+                },
+                "connection_Type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": "redEthernet"
+                    }
+                },
+                "ip_Host_Name": {
+                    "type": "string",
+                    "example": "923.com"
+                },
+                "port": {
+                    "type": "integer",
+                    "example": 234
+                },
+                "phone_Number": {
+                    "type": "string",
+                    "example": "312kk432"
+                },
+                "communication_Address": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": "backthen"
+                    }
+                },
+                "user_Of_Area_Code": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "area_Code": {
+                    "type": "string",
+                    "example": "area 3"
+                },
+                "communications_Manager": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "imei": {
+                    "type": "integer",
+                    "example": 2
+                },
+                "send_Ping": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "ping_Time": {
+                    "type": "integer",
+                    "example": 123865
+                },
+                "user_Ethernet": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "ethernet": {
+                    "type": "string",
+                    "example": 123.343
+                },
+                "virloc_Device": {
+                    "type": "string",
+                    "example": "ON Elite"
+                },
+                "baud_Speed": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 129753
+                    }
+                },
+                "data_Bits": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 22309
+                    }
+                },
+                "stop_Bits": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "example": 362874909
+                    }
+                },
+                "parity": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": "backMax"
+                    }
+                },
+                "data_Terminal_Ready_DTR": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "detect_Communication": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "ask_To_Send_RTS": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "time_Out_MS": {
+                    "type": "integer",
+                    "example": 123
+                },
+                "retries_Times": {
+                    "type": "integer",
+                    "example": 986
+                },
+                "frames_Per_Packet": {
+                    "type": "integer",
+                    "example": 45678
+                },
+                "set_As_Default": {
+                    "type": "string",
+                    "example": "default"
+                },
+                "out_Put_Ports": {
+                    "type": "string",
+                    "example": "OUT 234"
+                },
+                "modem_Chains": {
+                    "type": "string",
+                    "example": "modem 3 ION"
+                }
+            }
+        },
+        "Service_Point": {
+            "properties": {
+                "identification_Point": {
+                    "type": "integer",
+                    "example": 123
+                },
+                "description_Point": {
+                    "type": "string",
+                    "example": "point EEUU"
+                }
+            }
+        },
+        "Service_Point_Variable": {
+            "properties": {
+                "metering_Type_Device": {
+                    "type": "string",
+                    "example": 123
+                },
+                "ke_Reading": {
+                    "type": "integer",
+                    "example": 204
+                },
+                "ct_Reading": {
+                    "type": "integer",
+                    "example": 5.423
+                },
+                "pt_Reading": {
+                    "type": "integer",
+                    "example": 4.56
+                },
+                "sf_Reading": {
+                    "type": "integer",
+                    "example": 2.39
+                },
+                "channel_Reading": {
+                    "type": "number",
+                    "example": 123
+                },
+                "log_Reading": {
+                    "type": "number",
+                    "example": 123
+                },
+                "uom_Reading": {
+                    "type": "string",
+                    "example": "ftr"
+                },
+                "customer": {
+                    "type": "string",
+                    "example": "ftr"
+                },
+                "last_Read": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2019-01-01"
+                }
+            }
+        },
+        "Relation_Device": {
+            "properties": {
+                "relation_Start_Date": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2019-01-01"
+                },
+                "relation_End_Date": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2019-01-01"
+                },
+                "master_Identifier_Device": {
+                    "type": "string",
+                    "example": 123
+                },
+                "master_Identifier_Point": {
+                    "type": "string",
+                    "example": 543
+                }
+            }
+        }
+    },
+    "host": "localhost:5000",
+    "basePath": "/teama58/Generic_Object/1.0.0",
+    "schemes": [
+        "https"
+    ]
+}
