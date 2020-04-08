@@ -13,8 +13,8 @@ class Relation_Device:
     def __init__(self):
 
         #Propiedades de la entidad
-        self.relation_StartDate = datetime.datetime.now()
-        self.relation_EndtDate = datetime.datetime.now()
+        self.relation_Start_Date = datetime.datetime.now()
+        self.relation_End_Date = datetime.datetime.now()
         self.master_Identifier_Device = str
         self.master_Identifier_Point = str
 
@@ -26,10 +26,10 @@ class Relation_Device:
         return self.relation_Start_Date    
     
     def set_Relation_Endt_Date(self, relation_Endt_Date):
-        self.relation_Endt_Date = relation_Endt_Date
+        self.relation_End_Date = relation_Endt_Date
 
     def get_Relation_Endt_Date(self):
-        return self.relation_Endt_Date
+        return self.relation_End_Date
 
     def set_Master_Identifier_Device(self, master_Identifier_Device):
         self.master_Identifier_Device = master_Identifier_Device

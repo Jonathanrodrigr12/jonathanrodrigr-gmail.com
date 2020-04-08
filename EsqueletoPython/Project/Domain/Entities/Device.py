@@ -22,8 +22,8 @@ class Device:
         self.category_Device = str
         self.device_Master_Id = str
         self.remarks = str
-        self.ct = str
-        self.pt = str
+        self.ct = int
+        self.pt = int
         self.reading_User = str
         self.read_Password = str
         self.write_User = str
@@ -52,7 +52,7 @@ class Device:
         self.time_Out_MS = int
         self.retries_Time = int
         self.frames_Per_Packet = int
-        self.set_As_Default = str
+        self.as_Default = str
         self.out_Put_Ports = str
         self.modem_Chains = str
 
@@ -188,12 +188,36 @@ class Device:
 
     def get_Phone_Number(self):
         return self.phone_Number   
+    
+    def set_Phone_Number(self, phone_Number):
+        self.phone_Number = phone_Number
 
+    def get_Phone_Number(self):
+        return self.phone_Number 
+    
     def set_Communication_Address(self, communication_Address):
         self.communication_Address.append(communication_Address)
 
     def get_Communication_Address(self):
-        return self.communication_Address 
+        return self.communication_Address
+
+    def set_User_Area_Code(self, user_Area_Code):
+        self.user_Of_Area_Code = user_Area_Code
+
+    def get_User_Area_Code(self):
+        return self.user_Of_Area_Code
+
+    def set_Area_Code(self, area_Code):
+        self.area_Code = area_Code
+
+    def get_Area_Code(self):
+        return self.area_Code
+
+    def set_Communication_Manager(self, communication_Manager):
+        self.communication_Manager = communication_Manager
+
+    def get_Communication_Manager(self):
+        return self.communication_Manager           
 
     def set_Imei(self, imei):
         self.imei = imei
@@ -205,7 +229,13 @@ class Device:
         self.send_Ping = send_Ping
 
     def get_Send_Ping(self):
-        return self.send_Ping  
+        return self.send_Ping
+
+    def set_Ping_Time(self, ping_Time):
+        self.ping_Time = ping_Time
+
+    def get_Ping_Time(self):
+        return self.ping_Time        
 
     def set_User_Ethernet(self, user_Ethernet):
         self.user_Ethernet = user_Ethernet
@@ -285,11 +315,11 @@ class Device:
     def get_Frames_Per_Packet(self):
         return self.frames_Per_Packet
 
-    def set_As_Default(self, set_As_Default):
-        self.set_As_Default = set_As_Default
+    def set_As_Default(self, as_Default):
+        self.as_Default = as_Default
 
     def get_As_Default(self):
-        return self.set_As_Default
+        return self.as_Default
 
     def set_Out_Put_Ports(self, out_Put_Ports):
         self.out_Put_Ports = out_Put_Ports
