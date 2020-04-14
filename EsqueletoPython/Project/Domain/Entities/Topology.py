@@ -10,6 +10,7 @@ class Topology:
     def __init__(self):
         #Propiedades de la entidad
         self.guid_Topology = str
+        self.owner = {}
         self.service_Point_Variable = []
         self.service_Point = []
         self.devices = []
@@ -44,4 +45,10 @@ class Topology:
         self.relation_Device.append(relation_Device)
 
     def get_Relation_Device(self):
-        return self.relation_Device   
+        return self.relation_Device
+
+    def set_Owner(self, owner):
+        self.owner = owner
+
+    def get_Owner(self):
+        return self.owner       

@@ -1,14 +1,21 @@
 from ...Domain.Entities.Topology import Topology
+from ...Domain.Entities.Reading import Readings
 from ...Domain.Entities.Device import Device
 from ...Domain.Entities.RelationDevice import Relation_Device
 from ...Domain.Entities.ServicePoint import Service_Point
 from ...Domain.Entities.ServicePointVariable import Service_Point_Varible
+from ...Domain.Entities.Owner import Owner
 
-class Generic_Object:
-    def generic_Object_Response(self):
+class Generic_Object_Service:
+    def generic_Object_Response_Topology(self):
         toplogy = Topology()
         toplogy.set_Guid_Topology("d290f1ee-6c54-4b01-90e6")
         
+        owner = Owner()
+        owner.set_Hes("22")
+        owner.set_Owner("asd")
+        owner.set_Guid_File("123-123-qw123")
+
         device = Device()
         device.set_Device_Identifier(123)
         device.set_Type('BackUp')
@@ -84,14 +91,21 @@ class Generic_Object:
         toplogy.set_Service_Point(servicePoint)
         toplogy.set_Service_Point_Variable(ServicePointVariable)
         toplogy.set_Device(device)
-        return self.Response_Model(toplogy)
+        toplogy.set_Owner(owner)
+        return self.response_Model_Topology(toplogy)
 
-    def Response_Model(self, arguments): 
+    def response_Model_Topology(self, arguments): 
         data = {}
         relationDevice = []
         servicePoint = []
         deviceResponse = []
         servicePointVariable = []
+        owner = {
+            "hes": arguments.owner.hes,
+            "owner": arguments.owner.owner,
+            "guidFile": arguments.owner.guid_File
+        }
+
         for relation_Device in arguments.relation_Device:
             data = {
                      "masterIdentifierDevice": relation_Device.master_Identifier_Device,
@@ -176,9 +190,84 @@ class Generic_Object:
 
         data = {
                 "GuidTopology": arguments.guid_Topology,
+                "Owner": owner,
                 "RelationDevice": relationDevice,
                 "ServicePoint": servicePoint,
                 "ServicePointVariable": servicePointVariable,
                 "Device": deviceResponse
                }   
+        return data
+
+    def generic_Object_Reading(self):
+        reading = Readings()
+        reading.set_Guid_Readings("123-123-qw123")
+        reading.set_Identifier_Service_Point("asd123")
+        reading.set_Type_Variable("UOAM")
+        reading.set_Ident_Reading(22)
+        reading.set_Ident_Event(22)
+        reading.set_Id_Variablet(22)
+        reading.set_Id_Vdi(22)
+        reading.set_Device_Identifier("22")
+        reading.set_Id_Date_YMD(20200121)
+        reading.set_Id_Date_YW(2020014)
+        reading.set_Date_Utc("2019-01-01")
+        reading.set_Date_Source("2019-01-01")
+        reading.set_Date_Creation("2019-01-01")
+        reading.set_Flags_DST(33)
+        reading.set_Channel(55)
+        reading.set_Uom("KWR")
+        reading.set_Validation_Flag("2>kr")
+        reading.set_Interval(22)
+        reading.set_Log_Number(22)
+        reading.set_Multuplier_Values(22)
+        reading.set_Raw_Reading(22)
+        reading.set_Usage_Reading(22)
+        reading.set_Usage_Valid("S2")
+        reading.set_Estimation_Reading(2)
+        reading.set_Estimation_Reading(2)
+        reading.set_Estimation_Valid("22")
+        reading.set_Edition_Reading(22)
+        reading.set_Edition_Valid("22")
+        reading.set_Hes("22")
+        reading.set_Owner("asd")
+        reading.set_Guid_File("123-123-qw123")
+        reading.set_Status("ON")
+        return self.response_Model_Reading(reading)
+
+    def response_Model_Reading(self, arguments):
+        data = {
+            "guidReading": arguments.guid_Readings,
+            "identifierServicePoint": arguments.identifier_Service_Point,
+            "typeVariable": arguments.type_Variable,
+            "identReading": arguments.ident_Reading,
+            "identEvent": arguments.ident_Event,
+            "idVariable": arguments.id_Variable,
+            "idVdi": arguments.id_Vdi,
+            "deviceIdentifier": arguments.device_Identifier,
+            "idDateYMD": arguments.id_Date_YMD,
+            "idDateYW": arguments.id_Date_YW,
+            "dateUtc": arguments.date_Utc,
+            "dateSource": arguments.date_Source,
+            "dateLocal": arguments.date_Local,
+            "dateCreation": arguments.date_Creation,
+            "flagsDST": arguments.flags_DST,
+            "channel": arguments.channel,
+            "uom": arguments.uom,
+            "validationFlag": arguments.validation_Flag,
+            "interval": arguments.interval,
+            "logNumber": arguments.log_Number,
+            "multuplierValues": arguments.multuplier_Values,
+            "rawReading": arguments.raw_Reading,
+            "usageReading": arguments.usage_Reading,
+            "usageValid": arguments.usage_Valid,
+            "estimationReading": arguments.estimation_Reading,
+            "estimationValid": arguments.estimation_Valid,
+            "editionReading": arguments.edition_Reading,
+            "editionValid": arguments.edition_Valid,
+            "hes": arguments.hes,
+            "owner": arguments.owner,
+            "guidFile": arguments.guid_File,
+            "status": arguments.status
+        }
+
         return data

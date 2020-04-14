@@ -39,7 +39,7 @@
                 }
             }
         },
-        "/GenericObjectLecturas": {
+        "/GenericObjectReadings": {
             "get": {
                 "tags": [
                     "ReArquitectura"
@@ -56,7 +56,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Lecturas"
+                                "$ref": "#/definitions/Readings"
                             }
                         }
                     },
@@ -75,6 +75,23 @@
                     "type": "string",
                     "format": "uuid",
                     "example": "d290f1ee-6c54-4b01-90e6"
+                },
+                "Owner": {
+                    "type": "object",
+                    "properties": {
+                        "hes": {
+                            "type": "string",
+                            "example": "123-455-asfe"
+                        },
+                        "owner": {
+                            "type": "string",
+                            "example": "123-455-asfe"
+                        },
+                        "guidFile": {
+                            "type": "string",
+                            "example": "123-455-asfe"
+                        }
+                    }
                 },
                 "ServicePointVariable": {
                     "type": "array",
@@ -104,46 +121,56 @@
         },
         "Readings": {
             "properties": {
-                "guidLecturas": {
+                "guidReading": {
                     "type": "string",
                     "format": "uuid",
                     "example": "d290f1ee-6c54-4b01-90e6"
                 },
-                "identifierService": {
-                    "type": "integer",
-                    "example": 1
-                },
-                "fount": {
+                "identifierServicePoint": {
                     "type": "string",
-                    "example": "HES EEUU"
+                    "example": "123kduaf-13312"
                 },
-                "type": {
-                    "type": "string",
-                    "example": "Event"
+                "typeVariable": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": "KRD"
+                    }
                 },
-                "versionIdentifier": {
+                "identReading": {
                     "type": "integer",
-                    "example": 123
+                    "example": 2
+                },
+                "identEvent": {
+                    "type": "integer",
+                    "example": 3
+                },
+                "idVariable": {
+                    "type": "string",
+                    "example": "123-455-asfe"
+                },
+                "idVdi": {
+                    "type": "integer",
+                    "example": 88
+                },
+                "deviceIdentifier": {
+                    "type": "string",
+                    "example": "123kduaf-13312"
+                },
+                "idDateYMD": {
+                    "type": "integer",
+                    "example": 20200121
+                },
+                "idDateYW": {
+                    "type": "integer",
+                    "example": 20201
                 },
                 "dateUtc": {
                     "type": "string",
                     "format": "date-time",
                     "example": "2020-07-21T17:32:28"
                 },
-                "variable": {
-                    "type": "string",
-                    "example": "KRW"
-                },
-                "identifierDevice": {
-                    "type": "string",
-                    "example": 123
-                },
-                "date": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2020-07-21T17:32:28"
-                },
-                "dateInitial": {
+                "dateSource": {
                     "type": "string",
                     "format": "date-time",
                     "example": "2020-07-21T17:32:28"
@@ -153,82 +180,88 @@
                     "format": "date-time",
                     "example": "2020-07-21T17:32:28"
                 },
-                "flagDST": {
-                    "type": "string",
-                    "example": true
-                },
-                "identifierCanal": {
-                    "type": "integer",
-                    "example": 1234
-                },
-                "uom": {
-                    "type": "string",
-                    "example": "KWR"
-                },
-                "flags": {
-                    "type": "string",
-                    "format": "json",
-                    "example": {
-                        "field": 123,
-                        "value": 1234
-                    }
-                },
-                "interval": {
-                    "type": "integer",
-                    "example": 24
-                },
                 "dateCreation": {
                     "type": "string",
                     "format": "date-time",
                     "example": "2020-07-21T17:32:28"
                 },
-                "identifierLog": {
+                "flagsDST": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "channel": {
+                    "type": "integer",
+                    "example": 1234
+                },
+                "uom": {
+                    "type": "string",
+                    "example": "123-455-asfe"
+                },
+                "validationFlag": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": "KRD"
+                    }
+                },
+                "interval": {
+                    "type": "integer",
+                    "example": 2
+                },
+                "logNumber": {
+                    "type": "integer",
+                    "example": 2
+                },
+                "multuplierValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "example": "KRD"
+                    }
+                },
+                "rawReading": {
+                    "type": "integer",
+                    "example": 2
+                },
+                "usageReading": {
+                    "type": "integer",
+                    "example": 2
+                },
+                "usageValid": {
+                    "type": "string",
+                    "example": "123-455-asfe"
+                },
+                "estimationReading": {
+                    "type": "integer",
+                    "example": 4
+                },
+                "estimationValid": {
+                    "type": "string",
+                    "example": "123-455-asfe"
+                },
+                "editionReading": {
                     "type": "integer",
                     "example": 123
                 },
-                "id": {
-                    "type": "integer",
-                    "example": 12
-                },
-                "eventId": {
-                    "type": "integer",
-                    "example": 44
-                },
-                "idReading": {
-                    "type": "integer",
-                    "example": 45
-                },
-                "valueInitial": {
-                    "type": "integer",
-                    "example": 56
-                },
-                "usage": {
+                "editionValid": {
                     "type": "string",
-                    "example": "principal"
+                    "example": "123-455-asfe"
                 },
-                "validationUsage": {
+                "hes": {
                     "type": "string",
-                    "example": "principal ON"
+                    "example": "123-455-asfe"
                 },
-                "estimated": {
+                "owner": {
                     "type": "string",
-                    "example": false
+                    "example": "123-455-asfe"
                 },
-                "validationEstimated": {
+                "guidFile": {
                     "type": "string",
-                    "example": "validation ON"
+                    "example": "123-455-asfe"
                 },
-                "edited": {
+                "status": {
                     "type": "string",
-                    "example": true
-                },
-                "validationEdited": {
-                    "type": "string",
-                    "example": "validation OFF"
-                },
-                "state": {
-                    "type": "string",
-                    "example": "backup"
+                    "example": "123-455-asfe"
                 }
             }
         },
