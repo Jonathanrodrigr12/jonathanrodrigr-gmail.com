@@ -13,75 +13,151 @@ class Service_Point_Varible:
     def __init__(self):
 
         #Propiedades de la entidad
-        self.metering_Type_Device = str
-        self.ke_Reading = int
-        self.ct_Reading = int
-        self.pt_Reading = int
-        self.sf_Reading = int
-        self.channel_Reading = int
-        self.log_Reading = int
-        self.uom_Reading = str
-        self.customer = str
-        self.lastRead = datetime.datetime.now()
+        self.ke_Register = int
+        self.ct_Register = int
+        self.pt_Register = int
+        self.sf_Register = int
+        self.factor_Register = int
+        self.is_Register = bool
+        self.channel = int
+        self.log_Number = int
+        self.uom_Measure = str
+        self.customer_Name = str
+        self.registers_Last_Read = datetime.datetime.now()
+        self.events_Last_Read = datetime.datetime.now()
+        self.profile_Last_Read = datetime.datetime.now()
+        self.interval_Size = int
+        self.ke_Profile = int
+        self.ct_Profile = int
+        self.pt_Profile = int
+        self.sf_Profile = int
+        self.factor_Profile = int
+        self.is_Profile = bool
+        self.variable_Id = bool
 
-    # Setter's y Getter's
-    def set_Metering_Type(self,metering_Type):
-        self.metering_Type_Device = metering_Type
+    # Setter's y Getter's 
+    def set_Ke_Register(self, ke_Register):
+        self.ke_Register = ke_Register
 
-    def get_Metering_Type(self):
-        return self.metering_Type_Device    
+    def get_Ke_Register(self):
+        return self.ke_Register
+
+    def set_Ct_Register(self, ct_Register):
+        self.ct_Register = ct_Register
+
+    def get_Ct_Register(self):
+        return self.ct_Register
+
+    def set_Pt_Register(self,pt_Register):
+        self.pt_Register = pt_Register
+
+    def get_Pt_Register(self):
+        return self.pt_Register
+
+    def set_Sf_Register(self, sf_Register):
+        self.sf_Register = sf_Register
+
+    def get_Sf_Register(self):
+        return self.get_Sf_Register
+
+    def set_Factor_Register(self, factor_Register):
+        self.factor_Register = factor_Register
+
+    def get_Factor_Register(self):
+        return self.factor_Register
+
+    def set_Is_Register(self, is_Register):
+        self.is_Register = is_Register
+
+    def get_Is_Register(self):
+        return self.is_Register         
+
+    def set_Channel(self, channel):
+        self.channel = channel
+
+    def get_Channel(self):
+        return self.channel
+
+    def set_Log_Number(self, log_Number):
+        self.log_Number = log_Number
+
+    def get_Log_Number(self):
+        return self.log_Number
+
+    def set_Uom_Measure(self, uom_Measure):
+        self.uom_Measure = uom_Measure
+
+    def get_Uom_Measure(self):
+        return self.uom_Measure
+
+    def set_Customer_Name(self, customer_Name):
+        self.customer_Name = customer_Name
+
+    def get_Customer_Name(self):
+        return self.customer_Name
+
+    def set_Register_Last_Read(self, registers_Last_Read):
+        self.registers_Last_Read = registers_Last_Read
+
+    def get_Register_Last_Read(self):
+        return self.registers_Last_Read 
+
+    def set_Events_Last_Read(self, events_Last_Read):
+        self.events_Last_Read = events_Last_Read
+
+    def get_Events_Last_Read(self):
+        return self.events_Last_Read
+
+    def set_Profile_Last_Read(self, profile_Last_Read):
+        self.profile_Last_Read = profile_Last_Read
+
+    def get_Profile_Last_Read(self):
+        return self.profile_Last_Read                                        
     
-    def set_Ke_Reading(self, ke_Reading):
-        self.ke_Reading = ke_Reading
+    def set_Interval_Size(self, interval_Size):
+        self.interval_Size = interval_Size
 
-    def get_Ke_Reading(self):
-        return self.ke_Reading
+    def get_Interval_Size(self):
+        return self.interval_Size
 
-    def set_Ct_Reading(self, ct_Reading):
-        self.ct_Reading = ct_Reading
+    def set_Ke_Profile(self, ke_Profile):
+        self.ke_Profile = ke_Profile
 
-    def get_Ct_Reading(self):
-        return self.ct_Reading
+    def get_Ke_Profile(self):
+        return self.ke_Profile
 
-    def set_Pt_Reading(self,pt_Reading):
-        self.pt_Reading = pt_Reading
+    def set_Ct_Profile(self, ct_Profile):
+        self.ct_Profile = ct_Profile
 
-    def get_Pt_Reading(self):
-        return self.pt_Reading
+    def get_Ct_Profile(self):
+        return self.ct_Profile
 
-    def set_Sf_Reading(self, sf_Reading):
-        self.sf_Reading = sf_Reading
+    def set_Pt_Profile(self,pt_Profile):
+        self.pt_Profile = pt_Profile
 
-    def get_Sf_Reading(self):
-        return self.get_Sf_Reading
+    def get_Pt_Profile(self):
+        return self.pt_Profile
 
-    def set_Channel_Reading(self, channel_Reading):
-        self.channel_Reading = channel_Reading
+    def set_Sf_Profile(self, sf_Profile):
+        self.sf_Profile = sf_Profile
 
-    def get_Channel_Reading(self):
-        return self.channel_Reading
+    def get_Sf_Profile(self):
+        return self.get_Sf_Profile
 
-    def set_Log_Reading(self, log_Reading):
-        self.log_Reading = log_Reading
+    def set_Factor_Profile(self, factor_Profile):
+        self.factor_Profile = factor_Profile
 
-    def get_Log_Reading(self):
-        return self.log_Reading
+    def get_Factor_Profile(self):
+        return self.factor_Profile 
 
-    def set_Uom_Reading(self, uom_Reading):
-        self.uom_Reading = uom_Reading
+    def set_Is_Profile(self, is_Profile):
+        self.is_Profile = is_Profile
 
-    def get_Uom_Reading(self):
-        return self.uom_Reading
+    def get_Is_Profile(self):
+        return self.is_Profile
 
-    def set_Customer(self, customer):
-        self.customer = customer
+    def set_Variable_Id(self, variable_Id):
+        self.variable_Id = variable_Id
 
-    def get_Customer(self):
-        return self.customer
-
-    def set_Last_Read(self, last_Read):
-        self.last_Read = last_Read
-
-    def get_Last_Read(self):
-        return self.last_Read                                
-
+    def get_Variable_Id(self):
+        return self.variable_Id                

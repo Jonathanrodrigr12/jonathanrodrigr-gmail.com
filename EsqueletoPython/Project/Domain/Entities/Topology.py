@@ -15,6 +15,7 @@ class Topology:
         self.service_Point = []
         self.devices = []
         self.relation_Device = []
+        self.agent = []
 
     # Setter's y Getter's
     def set_Guid_Topology(self, guid_Topology):
@@ -51,4 +52,10 @@ class Topology:
         self.owner = owner
 
     def get_Owner(self):
-        return self.owner       
+        return self.owner
+
+    def set_Agent(self, agent):
+        self.agent = agent
+
+    def get_Agent(self):
+        return self.agent           

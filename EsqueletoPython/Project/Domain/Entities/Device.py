@@ -11,7 +11,6 @@ class Device:
 
         #Propiedades de la entidad
         self.device_Identifier = int
-        self.type = str
         self.metering_Type = str
         self.serial_Number = str
         self.model = str
@@ -21,40 +20,33 @@ class Device:
         self.status_Device = str
         self.category_Device = str
         self.device_Master_Id = str
-        self.remarks = str
-        self.ct = int
-        self.pt = int
-        self.reading_User = str
-        self.read_Password = str
-        self.write_User = str
-        self.write_Password = str
-        self.connection_Type = []
+        self.authentication_Level = str
+        self.authentication_Password = str
+        self.authentication_User = str
+        self.connection_Type = str
         self.ip_Host_Name = str
         self.port = int
-        self.phone_Number = str
-        self.communication_Address = []
+        self.telephone_Number = str
+        self.communication_Address = str
         self.user_Of_Area_Code = bool
         self.area_Code = str
         self.communication_Manager = bool
         self.imei = int
-        self.send_Ping = bool
-        self.ping_Time = int
-        self.user_Ethernet = bool
-        self.ethernet = str
-        self.virloc_Device = str
-        self.baud_Speed = []
-        self.data_Bits = []
-        self.stop_Bits = []
-        self.parity = []
-        self.data_Terminal_Ready_DTR = bool
-        self.detect_Communication = bool
-        self.ask_To_Send_RTS = bool
-        self.time_Out_MS = int
-        self.retries_Time = int
-        self.frames_Per_Packet = int
-        self.as_Default = str
-        self.out_Put_Ports = str
-        self.modem_Chains = str
+        self.baud_Rate= int
+        self.data_Bits = int
+        self.stop_Bits = int
+        self.parity = str
+        self.data_Terminal_Ready = bool
+        self.time_Out = int
+        self.tries = int
+        self.carrier_Detect = bool
+        self.device_Comments = str
+        self.frames_Per_Package = int
+        self.ratio = str
+        self.ratios_Primary = str
+        self.ratios_Secondary = str
+        self.ratios_Type = str
+        self.request_To_Send = bool
 
     # Setter's y Getter's
     def set_Device_Identifier(self, device_Identifier):
@@ -62,12 +54,6 @@ class Device:
 
     def get_Device_Identifier(self):
         return self.device_Identifier    
-    
-    def set_Type(self, type):
-        self.type = type
-
-    def get_Type(self):
-        return self.type
 
     def set_Metering_Type(self, metering_Type):
         self.metering_Type = metering_Type
@@ -123,50 +109,26 @@ class Device:
     def get_Device_Master_Id(self):
         return self.device_Master_Id           
 
-    def set_Remarks(self, remarks):
-        self.remarks = remarks
+    def set_Authentication_Level(self, authentication_Level):
+        self.authentication_Level = authentication_Level
 
-    def get_Remarks(self):
-        return self.remarks
+    def get_Authentication_Level(self):
+        return self.authentication_Level 
 
-    def set_Ct(self, ct):
-        self.ct = ct
+    def set_Authentication_Password(self, authentication_Password):
+        self.authentication_Password = authentication_Password
 
-    def get_Ct(self):
-        return self.ct  
+    def get_Authentication_Password(self):
+        return self.authentication_Password      
 
-    def set_Pt(self, pt):
-        self.pt = pt
+    def set_Authentication_User(self, authentication_User):
+        self.authentication_User = authentication_User
 
-    def get_Pt(self):
-        return self.pt
-
-    def set_Reading_User(self, reading_User):
-        self.reading_User = reading_User
-
-    def get_Reading_User(self):
-        return self.reading_User 
-
-    def set_Read_Password(self, read_Password):
-        self.read_Password = read_Password
-
-    def get_Read_Password(self):
-        return self.read_Password      
-
-    def set_Write_User(self, write_User):
-        self.write_User = write_User
-
-    def get_Write_User(self):
-        return self.write_User 
-
-    def set_Write_Password(self, write_Password):
-        self.write_Password = write_Password
-
-    def get_Write_Password(self):
-        return self.write_Password     
+    def get_authentication_User(self):
+        return self.authentication_User  
 
     def set_Connection_Type(self, connection_Type):
-        self.connection_Type.append(connection_Type)
+        self.connection_Type = connection_Type
 
     def get_Connection_Type(self):
         return self.connection_Type
@@ -183,17 +145,11 @@ class Device:
     def get_Port(self):
         return self.port 
 
-    def set_Phone_Number(self, phone_Number):
-        self.phone_Number = phone_Number
+    def set_Telephone_Number(self, telephone_Number):
+        self.telephone_Number = telephone_Number
 
-    def get_Phone_Number(self):
-        return self.phone_Number   
-    
-    def set_Phone_Number(self, phone_Number):
-        self.phone_Number = phone_Number
-
-    def get_Phone_Number(self):
-        return self.phone_Number 
+    def get_Telephone_Number(self):
+        return self.telephone_Number   
     
     def set_Communication_Address(self, communication_Address):
         self.communication_Address.append(communication_Address)
@@ -223,112 +179,88 @@ class Device:
         self.imei = imei
 
     def get_Imei(self):
-        return self.imei
+        return self.imei 
 
-    def set_Send_Ping(self, send_Ping):
-        self.send_Ping = send_Ping
+    def set_Baud_Rated(self, baud_Rate):
+        self.baud_Rate = baud_Rate
 
-    def get_Send_Ping(self):
-        return self.send_Ping
-
-    def set_Ping_Time(self, ping_Time):
-        self.ping_Time = ping_Time
-
-    def get_Ping_Time(self):
-        return self.ping_Time        
-
-    def set_User_Ethernet(self, user_Ethernet):
-        self.user_Ethernet = user_Ethernet
-
-    def get_User_Ethernet(self):
-        return self.user_Ethernet 
-
-    def set_Ethernet(self, ethernet):
-        self.ethernet = ethernet
-
-    def get_Ethernet(self):
-        return self.ethernet  
-
-    def set_Virloc_Device(self, virloc_Device):
-        self.virloc_Device = virloc_Device
-
-    def getVirloc_Device(self):
-        return self.virloc_Device    
-
-    def set_Baud_Speed(self, baud_Speed):
-        self.baud_Speed.append(baud_Speed)
-
-    def get_Baud_Speed(self):
-        return self.baud_Speed 
+    def get_Baud_Rated(self):
+        return self.baud_Rate
 
     def set_Data_Bits(self, data_Bits):
-        self.data_Bits.append(data_Bits)
+        self.data_Bits = data_Bits
 
     def get_Data_Bits(self):
         return self.data_Bits
 
     def set_Stop_Bits(self, stop_Bits):
-        self.stop_Bits.append(stop_Bits)
+        self.stop_Bits = stop_Bits
 
     def get_Stop_Bits(self):
         return self.stop_Bits
 
     def set_Parity(self, parity):
-        self.parity.append(parity)
+        self.parity = parity
 
     def get_Parity(self):
         return self.parity 
 
-    def set_Data_Terminal_Ready_DTR(self, data_Terminal_Ready_DTR):
-        self.data_Terminal_Ready_DTR = data_Terminal_Ready_DTR
+    def set_Data_Terminal_Ready(self, data_Terminal_Ready):
+        self.data_Terminal_Ready = data_Terminal_Ready
 
-    def get_Data_Terminal_Ready_DTR(self):
+    def get_Data_Terminal_Ready(self):
         return self.data_Terminal_Ready_DTR 
 
-    def set_Detect_Communication(self, detect_Communication):
-        self.detect_Communication = detect_Communication
+    def set_Time_Out(self, time_Out):
+        self.time_Out = time_Out
 
-    def get_Detect_Communication(self):
-        return self.detect_Communication 
-
-    def set_Ask_To_Send_RTS(self, ask_To_Send_RTS):
-        self.ask_To_Send_RTS = ask_To_Send_RTS
-
-    def get_Ask_To_Send_RTS(self):
-        return self.ask_To_Send_RTS
-
-    def set_Time_Out_MS(self, time_Out_MS):
-        self.time_Out_MS = time_Out_MS
-
-    def get_Time_Out_MS(self):
+    def get_Time_Out(self):
         return self.time_Out_MS 
 
-    def set_Retries_Time(self, retries_Time):
-        self.retries_Time = retries_Time
+    def set_Tries(self, tries):
+        self.tries = tries
 
-    def get_Retries_Time(self):
-        return self.retries_Time
+    def get_Tries(self):
+        return self.tries
 
-    def set_Frames_Per_Packet(self, frames_Per_Packet):
-        self.frames_Per_Packet = frames_Per_Packet
+    def set_Carrier_Detect(self, carrier_Detect):
+        self.carrier_Detect = carrier_Detect
 
-    def get_Frames_Per_Packet(self):
-        return self.frames_Per_Packet
+    def get_Carrier_Detect(self):
+        return self.carrier_Detect
 
-    def set_As_Default(self, as_Default):
-        self.as_Default = as_Default
+    def set_Device_Comments(self, device_Comments):
+        self.device_Comments = device_Comments
 
-    def get_As_Default(self):
-        return self.as_Default
+    def get_Device_Comments(self):
+        return self.device_Comments
 
-    def set_Out_Put_Ports(self, out_Put_Ports):
-        self.out_Put_Ports = out_Put_Ports
+    def set_Ratio(self, ratio):
+        self.ratio = ratio
 
-    def get_Out_Put_Ports(self):
-        return self.out_Put_Ports
+    def get_Ratio(self):
+        return self.ratio
 
-    def set_Modem_Chains(self, modem_Chains):
-        self.modem_Chains = modem_Chains
+    def set_Ratios_Primary(self, ratios_Primary):
+        self.ratios_Primary = ratios_Primary
 
-    def get_Modem_Chains(self):
-        return self.modem_Chains
+    def get_Ratios_Primary(self):
+        return self.ratios_Primary
+
+    def set_Ratios_Secondary(self, ratios_Secondary):
+        self.ratios_Secondary = ratios_Secondary
+
+    def get_Ratios_Secondary(self):
+        return self.ratios_Secondary
+
+    def set_Ratios_Type(self, ratios_Type):
+        self.ratios_Type = ratios_Type
+
+    def get_Ratios_Type(self):
+        return self.ratios_Type
+
+    def set_Request_To_Send(self, request_To_Send):
+        self.request_To_Send = request_To_Send
+
+    def get_Request_To_Send(self):
+        return self.request_To_Send                

@@ -18,7 +18,6 @@ class Generic_Object_Service:
 
         device = Device()
         device.set_Device_Identifier(123)
-        device.set_Type('BackUp')
         device.set_Metering_Type("MS123")
         device.set_Serial_Number('123-akdjd-234')
         device.set_Model('2019 enero')
@@ -28,53 +27,57 @@ class Generic_Object_Service:
         device.set_Status_Device('ON')
         device.set_Category_Device('Device 123')
         device.set_Device_Master_Id('Master 123')
-        device.set_Remarks('Rem 799')
-        device.set_Ct(123)
-        device.set_Pt(123)
-        device.set_Reading_User('User system')
-        device.set_Read_Password('919203')
-        device.set_Write_User('System')
-        device.set_Write_Password('99183')
+        device.set_Authentication_Level('User system')
+        device.set_Authentication_Password('919203')
+        device.set_Authentication_User('System')
         device.set_Connection_Type('Red wifi')
         device.set_Ip_Host_Name('922.124.123')
         device.set_Port(9999)
-        device.set_Phone_Number('31422245')
+        device.set_Telephone_Number('31422245')
         device.set_Communication_Address('31422245')
         device.set_User_Area_Code(False)
         device.set_Area_Code('asd123')
         device.set_Communication_Manager(True)
         device.set_Imei(1)
-        device.set_Send_Ping(False)
-        device.set_Ping_Time(12)
-        device.set_User_Ethernet(True)
-        device.set_Ethernet('RR444')
-        device.set_Virloc_Device('TTYY')
-        device.set_Baud_Speed(123)
+        device.set_Baud_Rated(123)
         device.set_Data_Bits(999)
         device.set_Stop_Bits(124)
         device.set_Parity(123)
-        device.set_Data_Terminal_Ready_DTR(True)
-        device.set_Detect_Communication(False)
-        device.set_Ask_To_Send_RTS(False)
-        device.set_Time_Out_MS(99)
-        device.set_Retries_Time(99)
-        device.frames_Per_Packet(88)
-        device.set_As_Default('123aa')
-        device.set_Out_Put_Ports('888')
-        device.set_Modem_Chains('RRTT')
-        device.set_Frames_Per_Packet(12)
+        device.set_Data_Terminal_Ready(True)
+        device.set_Time_Out(99)
+        device.set_Tries(99)
+        device.set_Carrier_Detect(True)
+        device.set_Device_Comments('123aa')
+        device.set_Ratio('888')
+        device.set_Ratios_Primary('RRTT')
+        device.set_Ratios_Secondary("12")
+        device.set_Ratios_Type("12")
+        device.set_Request_To_Send(True)
 
         ServicePointVariable = Service_Point_Varible()
-        ServicePointVariable.set_Uom_Reading('KRM')
-        ServicePointVariable.set_Sf_Reading(12)
-        ServicePointVariable.set_Pt_Reading(87)
-        ServicePointVariable.set_Metering_Type('BACKUP')
-        ServicePointVariable.set_Log_Reading(123)
-        ServicePointVariable.set_Last_Read('2019-01-01')
-        ServicePointVariable.set_Ke_Reading(12)
-        ServicePointVariable.set_Customer('GPC EEUU')
-        ServicePointVariable.set_Ct_Reading(3421)
-        ServicePointVariable.set_Channel_Reading(9982411)
+        ServicePointVariable.set_Ke_Register(12)
+        ServicePointVariable.set_Ct_Register(12)
+        ServicePointVariable.set_Pt_Register(87)
+        ServicePointVariable.set_Sf_Register(22)
+        ServicePointVariable.set_Factor_Register(123)
+        ServicePointVariable.set_Is_Register(True)
+        ServicePointVariable.set_Channel(222)
+        ServicePointVariable.set_Log_Number(222)
+        ServicePointVariable.set_Uom_Measure("222")
+        ServicePointVariable.set_Customer_Name("222")
+        ServicePointVariable.set_Customer_Name("222")
+        ServicePointVariable.set_Register_Last_Read("2019-01-01")
+        ServicePointVariable.set_Profile_Last_Read("2019-01-01")
+        ServicePointVariable.set_Events_Last_Read("2019-01-01")
+        ServicePointVariable.set_Interval_Size(4570)
+        ServicePointVariable.set_Ke_Profile(12)
+        ServicePointVariable.set_Ct_Profile(12)
+        ServicePointVariable.set_Pt_Profile(87)
+        ServicePointVariable.set_Sf_Profile(22)
+        ServicePointVariable.set_Factor_Profile(22)
+        ServicePointVariable.set_Is_Profile(True)
+        ServicePointVariable.set_Variable_Id(True)
+
 
         servicePoint = Service_Point()
         
@@ -150,13 +153,6 @@ class Generic_Object_Service:
                      "StatusDevice": device.status_Device,
                      "CategoryDevice": device.category_Device,
                      "MaterId": device.device_Master_Id,
-                     "Remarks": device.remarks,
-                     "CT": device.ct,
-                     "PT": device.pt,
-                     "ReadingUser": device.reading_User,
-                     "ReadPassword": device.read_Password,
-                     "WriteUser": device.write_User,
-                     "WritePassword": device.write_Password,
                      "ConnectionType": device.connection_Type,
                      "IpHostName": device.ip_Host_Name,
                      "Port": device.port,
@@ -171,19 +167,9 @@ class Generic_Object_Service:
                      "UserEthernet": device.user_Ethernet,
                      "Ethernet": device.ethernet,
                      "VirlocDevice": device.virloc_Device,
-                     "BaudSpeed": device.baud_Speed,
                      "DataBits": device.data_Bits,
                      "StopBits": device.stop_Bits,
-                     "Parity": device.parity,
-                     "TerminalReadyDTR": device.data_Terminal_Ready_DTR,
-                     "DetectCommunication":  device.detect_Communication,
-                     "AskSendRTS": device.ask_To_Send_RTS,
-                     "TimeOutMS":  device.time_Out_MS,
-                     "RetriesTime": device.retries_Time,
-                     "FramesPerPacket": device.frames_Per_Packet,
-                     "AsDefault": device.as_Default,
-                     "OutPutPorts": device.out_Put_Ports,
-                     "ModemChains": device.modem_Chains
+                     "Parity": device.parity
                    }
                    
             deviceResponse.append(data)          
