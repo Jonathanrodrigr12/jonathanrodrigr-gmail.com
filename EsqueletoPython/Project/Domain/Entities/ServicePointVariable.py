@@ -13,27 +13,28 @@ class Service_Point_Varible:
     def __init__(self):
 
         #Propiedades de la entidad
+        self.channel = int
+        self.log_Number = int
+        self.interval_Size = int
         self.ke_Register = int
         self.ct_Register = int
         self.pt_Register = int
         self.sf_Register = int
         self.factor_Register = int
-        self.is_Register = bool
-        self.channel = int
-        self.log_Number = int
-        self.uom_Measure = str
-        self.customer_Name = str
-        self.registers_Last_Read = datetime.datetime.now()
-        self.events_Last_Read = datetime.datetime.now()
+        self.reading_Type = str
         self.profile_Last_Read = datetime.datetime.now()
-        self.interval_Size = int
+        self.register_Number = str
         self.ke_Profile = int
         self.ct_Profile = int
         self.pt_Profile = int
         self.sf_Profile = int
         self.factor_Profile = int
-        self.is_Profile = bool
+        self.registers_Last_Read = datetime.datetime.now()
+        self.events_Code = str
+        self.events_Last_Read = datetime.datetime.now()
         self.variable_Id = bool
+        self.customer_Name = str
+        self.uom_Measure = str        
 
     # Setter's y Getter's 
     def set_Ke_Register(self, ke_Register):
@@ -66,11 +67,11 @@ class Service_Point_Varible:
     def get_Factor_Register(self):
         return self.factor_Register
 
-    def set_Is_Register(self, is_Register):
-        self.is_Register = is_Register
+    def set_Reading_Type(self, reading_Type):
+        self.reading_Type = reading_Type
 
-    def get_Is_Register(self):
-        return self.is_Register         
+    def get_Reading_Type(self):
+        return self.reading_Type           
 
     def set_Channel(self, channel):
         self.channel = channel
@@ -101,6 +102,12 @@ class Service_Point_Varible:
 
     def get_Register_Last_Read(self):
         return self.registers_Last_Read 
+    
+    def set_Events_Code(self, events_Code):
+        self.events_Code = events_Code
+
+    def get_Events_Code(self):
+        return self.events_Code 
 
     def set_Events_Last_Read(self, events_Last_Read):
         self.events_Last_Read = events_Last_Read
@@ -113,6 +120,12 @@ class Service_Point_Varible:
 
     def get_Profile_Last_Read(self):
         return self.profile_Last_Read                                        
+    
+    def set_Register_Number(self, register_Number):
+        self.register_Number = register_Number
+
+    def get_Register_Number(self):
+        return self.register_Number 
     
     def set_Interval_Size(self, interval_Size):
         self.interval_Size = interval_Size
@@ -149,12 +162,6 @@ class Service_Point_Varible:
 
     def get_Factor_Profile(self):
         return self.factor_Profile 
-
-    def set_Is_Profile(self, is_Profile):
-        self.is_Profile = is_Profile
-
-    def get_Is_Profile(self):
-        return self.is_Profile
 
     def set_Variable_Id(self, variable_Id):
         self.variable_Id = variable_Id

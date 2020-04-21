@@ -15,8 +15,8 @@ class Relation_Device:
         #Propiedades de la entidad
         self.relation_Start_Date = datetime.datetime.now()
         self.relation_End_Date = datetime.datetime.now()
-        self.master_Identifier_Device = str
-        self.master_Identifier_Point = str
+        self.identifier_Device = str
+        self.identifier_Point = str
 
     # Setter's y Getter's
     def set_Relation_Start_Date(self, relation_Start_Date):
@@ -31,14 +31,14 @@ class Relation_Device:
     def get_Relation_Endt_Date(self):
         return self.relation_End_Date
 
-    def set_Master_Identifier_Device(self, master_Identifier_Device):
-        self.master_Identifier_Device = master_Identifier_Device
+    def set_Identifier_Device(self, identifier_Device):
+        self.identifier_Device = identifier_Device
 
-    def get_Master_Identifier_Device(self):
-        return self.master_Identifier_Device 
+    def get_Identifier_Device(self):
+        return self.identifier_Device 
 
-    def set_Master_Identifier_Point(self, master_Identifier_Point):
-        self.master_Identifier_Point = master_Identifier_Point
+    def set_Identifier_Point(self, identifier_Point):
+        self.identifier_Point = identifier_Point
 
-    def get_Master_Identifier_Point(self):
-        return self.master_Identifier_Point        
+    def get_Identifier_Point(self):
+        return self.identifier_Point        
