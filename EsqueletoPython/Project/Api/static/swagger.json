@@ -1,626 +1,566 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "description": "This is a GenericObject",
-        "version": "1.0.0",
-        "title": "Generic Object API"
-    },
-    "tags": [
-        {
-            "name": "ReArquitectura",
-            "description": "Generic Object"
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a GenericObject",
+    "version" : "1.0.0",
+    "title" : "Generic Object API"
+  },
+  "tags" : [ {
+    "name" : "ReArquitectura",
+    "description" : "Generic Object"
+  } ],
+  "paths" : {
+    "/GenericObjectTopology" : {
+      "get" : {
+        "tags" : [ "ReArquitectura" ],
+        "summary" : "Generic Object",
+        "operationId" : "Generic_Object",
+        "description" : "Example de create Generic Object Topology",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/topology"
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
         }
-    ],
-    "paths": {
-        "/GenericObjectTopology": {
-            "get": {
-                "tags": [
-                    "ReArquitectura"
-                ],
-                "summary": "Generic Object",
-                "operationId": "Generic_Object",
-                "description": "Example de create Generic Object Topology",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "search results matching criteria",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Topology"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "bad input parameter"
-                    }
-                }
-            }
-        },
-        "/GenericObjectReadings": {
-            "get": {
-                "tags": [
-                    "ReArquitectura"
-                ],
-                "summary": "Generic Object",
-                "operationId": "Generic_Object_Reading",
-                "description": "Example de create Generic Object Reading",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "search results matching criteria",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Readings"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "bad input parameter"
-                    }
-                }
-            }
-        }
+      }
     },
-    "definitions": {
-        "Topology": {
-            "type": "object",
-            "properties": {
-                "guidIdentifier": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "d290f1ee-6c54-4b01-90e6"
-                },
-                "owner": {
-                    "type": "object",
-                    "properties": {
-                        "hes": {
-                            "type": "string",
-                            "example": "123-455-asfe"
-                        },
-                        "owner": {
-                            "type": "string",
-                            "example": "123-455-asfe"
-                        },
-                        "guidFile": {
-                            "type": "string",
-                            "example": "123-455-asfe"
-                        }
-                    }
-                },
-                "servicePointVariable": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ServicePointVariable"
-                    }
-                },
-                "servicePoint": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ServicePoint"
-                    }
-                },
-                "device": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Device"
-                    }
-                },
-                "relationDevice": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RelationDevice"
-                    }
-                },
-                "agent": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Agent"
-                    }
-                }
+    "/GenericObjectReadings" : {
+      "get" : {
+        "tags" : [ "ReArquitectura" ],
+        "summary" : "Generic Object",
+        "operationId" : "Generic_Object_Reading",
+        "description" : "Example de create Generic Object Reading",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/readings"
+              }
             }
-        },
-        "Readings": {
-            "properties": {
-                "guidReading": {
-                    "type": "string",
-                    "format": "uuid",
-                    "example": "d290f1ee-6c54-4b01-90e6"
-                },
-                "idServicePoint": {
-                    "type": "string",
-                    "example": "22nn"
-                },
-                "readingType": {
-                    "type": "string",
-                    "example": 123
-                },
-                "idReading": {
-                    "type": "integer",
-                    "example": 123
-                },
-                "idEvent": {
-                    "type": "integer",
-                    "example": 123
-                },
-                "idVariable": {
-                    "type": "string",
-                    "example": "123AN"
-                },
-                "idVDI": {
-                    "type": "integer",
-                    "example": 123
-                },
-                "idDevice": {
-                    "type": "string",
-                    "example": "123as"
-                },
-                "meteringType": {
-                    "type": "integer",
-                    "example": 123
-                },
-                "idDateYMD": {
-                    "type": "integer",
-                    "example": 20200121
-                },
-                "idDateYW": {
-                    "type": "integer",
-                    "example": 20201
-                },
-                "dateUtc": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2020-07-21T17:32:28"
-                },
-                "dateSource": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2020-07-21T17:32:28"
-                },
-                "dateLocal": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2020-07-21T17:32:28"
-                },
-                "dateCreation": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2020-07-21T17:32:28"
-                },
-                "flagsDST": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "channel": {
-                    "type": "integer",
-                    "example": 1234
-                },
-                "uom": {
-                    "type": "integer",
-                    "example": "123-455-asfe"
-                },
-                "validationFlag": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/QualitiCode"
-                    }
-                },
-                "intervalSize": {
-                    "type": "integer",
-                    "example": 2
-                },
-                "logNumber": {
-                    "type": "integer",
-                    "example": 1
-                },
-                "multuplierValues": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "example": [
-                            "CT",
-                            "PT",
-                            "KE",
-                            "SF"
-                        ]
-                    }
-                },
-                "version": {
-                    "type": "integer",
-                    "example": 1
-                },
-                "rawReading": {
-                    "type": "integer",
-                    "example": 2
-                },
-                "usageReading": {
-                    "type": "integer",
-                    "example": 2
-                },
-                "usageValid": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "estimationReading": {
-                    "type": "integer",
-                    "example": 4
-                },
-                "estimationValid": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "editionReading": {
-                    "type": "integer",
-                    "example": 123
-                },
-                "editionValid": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "primarySource": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "readingSource": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "owner": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "guidFile": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "status": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "registerNumber": {
-                    "type": "string",
-                    "example": 123
-                },
-                "eventCode": {
-                    "type": "string",
-                    "example": 123
-                },
-                "agentId": {
-                    "type": "string",
-                    "example": 123
-                },
-                "aditionalInformation": {
-                    "type": "string",
-                    "format": "json",
-                    "example": "{value:123}"
-                }
-            }
-        },
-        "QualitiCode": {
-            "properties": {
-                "systemId": {
-                    "type": "string",
-                    "example": 123
-                },
-                "categorization": {
-                    "type": "string",
-                    "example": "category 1"
-                },
-                "index": {
-                    "type": "integer",
-                    "example": 2
-                }
-            }
-        },
-        "Device": {
-            "properties": {
-                "deviceIdentifier": {
-                    "type": "string",
-                    "example": "ION"
-                },
-                "meteringType": {
-                    "type": "string",
-                    "example": "BackUp"
-                },
-                "serial": {
-                    "type": "string",
-                    "example": "123-455-asfe"
-                },
-                "model": {
-                    "type": "string",
-                    "example": "2019-32-aecd"
-                },
-                "brand": {
-                    "type": "integer",
-                    "example": 1236
-                },
-                "descriptionDevice": {
-                    "type": "string",
-                    "example": "model one"
-                },
-                "accountNumber": {
-                    "type": "string",
-                    "example": "123kduaf-13312."
-                },
-                "deviceStatus": {
-                    "type": "string",
-                    "example": "ON"
-                },
-                "deviceCategory": {
-                    "type": "string",
-                    "example": "Principal"
-                },
-                "deviceMaster": {
-                    "type": "string",
-                    "example": "Principal"
-                },
-                "connectionType": {
-                    "type": "string",
-                    "example": "redEthernet"
-                },
-                "ipHostName": {
-                    "type": "string",
-                    "example": "923.com"
-                },
-                "port": {
-                    "type": "integer",
-                    "example": 234
-                },
-                "telephoneNumber": {
-                    "type": "string",
-                    "example": "312kk432"
-                },
-                "commAddress": {
-                    "type": "string",
-                    "example": "backthen"
-                },
-                "userOfAreaCode": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "areaCode": {
-                    "type": "string",
-                    "example": "area 3"
-                },
-                "communicationsManager": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "imei": {
-                    "type": "integer",
-                    "example": 2
-                },
-                "baudRate": {
-                    "type": "integer",
-                    "example": 129753
-                },
-                "dataBits": {
-                    "type": "integer",
-                    "example": 22309
-                },
-                "stopBits": {
-                    "type": "integer",
-                    "example": 362874909
-                },
-                "parity": {
-                    "type": "string",
-                    "example": "backMax"
-                },
-                "dataTerminalReady": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "timeOut": {
-                    "type": "integer",
-                    "example": 123
-                },
-                "tries": {
-                    "type": "integer",
-                    "example": 12
-                },
-                "authenticationLevel": {
-                    "type": "string",
-                    "example": "leve 1"
-                },
-                "authenticationPassword": {
-                    "type": "string",
-                    "example": "pass"
-                },
-                "authenticationUser": {
-                    "type": "string",
-                    "example": "user1"
-                },
-                "carrierDetect": {
-                    "type": "boolean",
-                    "example": true
-                },
-                "deviceComments": {
-                    "type": "string",
-                    "example": "example 1"
-                },
-                "framesPerPackage": {
-                    "type": "integer",
-                    "example": 123
-                },
-                "ratio": {
-                    "type": "string",
-                    "example": "example 1"
-                },
-                "ratiosPrimary": {
-                    "type": "string",
-                    "example": "example 1"
-                },
-                "ratiosSecondary": {
-                    "type": "string",
-                    "example": "example 1"
-                },
-                "ratiosType": {
-                    "type": "string",
-                    "example": "example 1"
-                },
-                "requestToSend": {
-                    "type": "boolean",
-                    "example": true
-                }
-            }
-        },
-        "ServicePoint": {
-            "properties": {
-                "identificationPoint": {
-                    "type": "string",
-                    "example": 123
-                },
-                "descriptionPoint": {
-                    "type": "string",
-                    "example": "point EEUU"
-                }
-            }
-        },
-        "Agent": {
-            "properties": {
-                "agentId": {
-                    "type": "string",
-                    "example": 123
-                },
-                "agentDescription": {
-                    "type": "string",
-                    "example": "point EEUU"
-                },
-                "agentRoles": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "example": "Abby Analyst"
-                    }
-                }
-            }
-        },
-        "ServicePointVariable": {
-            "properties": {
-                "channel": {
-                    "type": "number",
-                    "example": 123
-                },
-                "logNumber": {
-                    "type": "number",
-                    "example": 123
-                },
-                "intervalSize": {
-                    "type": "number",
-                    "example": 123
-                },
-                "keRegister": {
-                    "type": "integer",
-                    "example": 204
-                },
-                "ctRegister": {
-                    "type": "integer",
-                    "example": 5.423
-                },
-                "ptRegister": {
-                    "type": "integer",
-                    "example": 4.56
-                },
-                "sfRegister": {
-                    "type": "integer",
-                    "example": 2.39
-                },
-                "factorRegister": {
-                    "type": "number",
-                    "example": 123
-                },
-                "readingType": {
-                    "type": "string",
-                    "example": "Backup 1.2"
-                },
-                "profilelastReadDate": {
-                    "type": "string",
-                    "format": "date",
-                    "example": "2019-01-01"
-                },
-                "registersNumber": {
-                    "type": "string",
-                    "example": "registro 33"
-                },
-                "keProfile": {
-                    "type": "integer",
-                    "example": 204
-                },
-                "ctProfile": {
-                    "type": "integer",
-                    "example": 5.423
-                },
-                "ptProfile": {
-                    "type": "integer",
-                    "example": 4.56
-                },
-                "sfProfile": {
-                    "type": "integer",
-                    "example": 2.39
-                },
-                "factorProfile": {
-                    "type": "number",
-                    "example": 123
-                },
-                "registerslastReadDate": {
-                    "type": "string",
-                    "format": "date",
-                    "example": "2019-01-01"
-                },
-                "eventsCode": {
-                    "type": "string",
-                    "example": "ON"
-                },
-                "eventsLastRead": {
-                    "type": "string",
-                    "format": "date",
-                    "example": "2019-01-01"
-                },
-                "variableId": {
-                    "type": "string",
-                    "example": "KRD"
-                },
-                "customerName": {
-                    "type": "string",
-                    "example": "ftr"
-                },
-                "uomMeasure": {
-                    "type": "string",
-                    "example": "ftr"
-                }
-            }
-        },
-        "RelationDevice": {
-            "properties": {
-                "relationStartDate": {
-                    "type": "string",
-                    "format": "date",
-                    "example": "2019-01-01"
-                },
-                "relationEndDate": {
-                    "type": "string",
-                    "format": "date",
-                    "example": "2019-01-01"
-                },
-                "deviceIdentifier": {
-                    "type": "string",
-                    "example": 123
-                },
-                "pointIdentifier": {
-                    "type": "string",
-                    "example": 543
-                }
-            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
         }
+      }
+    }
+  },
+  "definitions" : {
+    "topology" : {
+      "type" : "object",
+      "properties" : {
+        "owner" : {
+          "type" : "object",
+          "properties" : {
+            "hes" : {
+              "type" : "string",
+              "example" : "123-455-asfe"
+            },
+            "owner" : {
+              "type" : "string",
+              "example" : "123-455-asfe"
+            },
+            "guidFile" : {
+              "type" : "string",
+              "example" : "123-455-asfe"
+            }
+          }
+        },
+        "servicePointVariable" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/servicePointVariable"
+          }
+        },
+        "servicePoint" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/servicePoint"
+          }
+        },
+        "device" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/device"
+          }
+        },
+        "relationDevice" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/relationDevice"
+          }
+        },
+        "agent" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/agent"
+          }
+        }
+      }
     },
-    "host": "localhost:5000",
-    "schemes": [
-        "http",
-        "https"
-    ]
+    "readings" : {
+      "properties" : {
+        "servicePointId" : {
+          "type" : "string",
+          "example" : "22nn"
+        },
+        "readingType" : {
+          "type" : "string",
+          "example" : 123
+        },
+        "identReading" : {
+          "type" : "integer",
+          "example" : 123
+        },
+        "idenEvent" : {
+          "type" : "integer",
+          "example" : 123
+        },
+        "variableId" : {
+          "type" : "string",
+          "example" : "123AN"
+        },
+        "idVdi" : {
+          "type" : "integer",
+          "example" : 123
+        },
+        "deviceId" : {
+          "type" : "string",
+          "example" : "123as"
+        },
+        "meteringType" : {
+          "type" : "integer",
+          "example" : 123
+        },
+        "idDateYmd" : {
+          "type" : "integer",
+          "example" : 20200121
+        },
+        "idDateYw" : {
+          "type" : "integer",
+          "example" : 20201
+        },
+        "readingUtcLocalTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2020-07-21T17:32:28"
+        },
+        "readingDateSource" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2020-07-21T17:32:28"
+        },
+        "readinglocalTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2020-07-21T17:32:28"
+        },
+        "dateCreation" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2020-07-21T17:32:28"
+        },
+        "dstStatus" : {
+          "type" : "boolean",
+          "example" : true
+        },
+        "channel" : {
+          "type" : "integer",
+          "example" : 1234
+        },
+        "unitOfMeasure" : {
+          "type" : "integer",
+          "example" : "123-455-asfe"
+        },
+        "validationFlag" : {
+          "type" : "string",
+          "format" : "json",
+          "example" : {
+            "qualityCodesSystemId" : "135A",
+            "qualityCodesCategorization" : "BackUp12",
+            "qualityCodesIndex" : 1
+          }
+        },
+        "intervalSize" : {
+          "type" : "integer",
+          "example" : 2
+        },
+        "logNumber" : {
+          "type" : "integer",
+          "example" : 1
+        },
+        "multuplierValues" : {
+          "type" : "string",
+          "format" : "json",
+          "example" : {
+            "ct" : 2,
+            "pt" : 2,
+            "ke" : 2,
+            "sf" : 1
+          }
+        },
+        "version" : {
+          "type" : "integer",
+          "example" : 1
+        },
+        "readingsValue" : {
+          "type" : "integer",
+          "example" : 2
+        },
+        "usageReading" : {
+          "type" : "integer",
+          "example" : 2
+        },
+        "usageValid" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "estimationReading" : {
+          "type" : "integer",
+          "example" : 4
+        },
+        "estimationValid" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "editionReading" : {
+          "type" : "integer",
+          "example" : 123
+        },
+        "editionValid" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "primarySource" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "readingsSource" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "owner" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "guidFile" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "status" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "registerNumber" : {
+          "type" : "string",
+          "example" : 123
+        },
+        "eventsCode" : {
+          "type" : "string",
+          "example" : 123
+        },
+        "agentId" : {
+          "type" : "string",
+          "example" : 123
+        },
+        "agentDescription" : {
+          "type" : "string",
+          "example" : 123
+        },
+        "additinalInformation" : {
+          "type" : "string",
+          "format" : "json",
+          "example" : "{value:123}"
+        }
+      }
+    },
+    "device" : {
+      "properties" : {
+        "deviceId" : {
+          "type" : "string",
+          "example" : "ION"
+        },
+        "meteringType" : {
+          "type" : "string",
+          "example" : "BackUp"
+        },
+        "deviceType" : {
+          "type" : "string",
+          "example" : "BackUp"
+        },
+        "deviceDescription" : {
+          "type" : "string",
+          "example" : "model one"
+        },
+        "accountNumber" : {
+          "type" : "string",
+          "example" : "123kduaf-13312."
+        },
+        "deviceStatus" : {
+          "type" : "string",
+          "example" : "ON"
+        },
+        "deviceComments" : {
+          "type" : "string",
+          "example" : "example 1"
+        },
+        "model" : {
+          "type" : "string",
+          "example" : "2019-32-aecd"
+        },
+        "brand" : {
+          "type" : "integer",
+          "example" : 1236
+        },
+        "deviceCategory" : {
+          "type" : "string",
+          "example" : "Principal"
+        },
+        "serial" : {
+          "type" : "string",
+          "example" : "123-455-asfe"
+        },
+        "deviceMaster" : {
+          "type" : "string",
+          "example" : "Principal"
+        },
+        "connectionType" : {
+          "type" : "string",
+          "example" : "redEthernet"
+        },
+        "ipHostName" : {
+          "type" : "string",
+          "example" : "923.com"
+        },
+        "port" : {
+          "type" : "integer",
+          "example" : 234
+        },
+        "telephoneNumber" : {
+          "type" : "string",
+          "example" : "312kk432"
+        },
+        "commAddress" : {
+          "type" : "string",
+          "example" : "backthen"
+        },
+        "userAreaCode" : {
+          "type" : "boolean",
+          "example" : true
+        },
+        "areaCode" : {
+          "type" : "string",
+          "example" : "area 3"
+        },
+        "imei" : {
+          "type" : "integer",
+          "example" : 2
+        },
+        "communicationManager" : {
+          "type" : "boolean",
+          "example" : true
+        },
+        "timeOut" : {
+          "type" : "integer",
+          "example" : 123
+        },
+        "tries" : {
+          "type" : "integer",
+          "example" : 12
+        },
+        "framesPerPackage" : {
+          "type" : "integer",
+          "example" : 123
+        },
+        "baudRate" : {
+          "type" : "integer",
+          "example" : 129753
+        },
+        "dataBits" : {
+          "type" : "integer",
+          "example" : 22309
+        },
+        "parity" : {
+          "type" : "string",
+          "example" : "backMax"
+        },
+        "stopBits" : {
+          "type" : "integer",
+          "example" : 362874909
+        },
+        "carrierDetect" : {
+          "type" : "boolean",
+          "example" : true
+        },
+        "dataTerminalReady" : {
+          "type" : "boolean",
+          "example" : true
+        },
+        "requestToSend" : {
+          "type" : "boolean",
+          "example" : true
+        },
+        "ratiosType" : {
+          "type" : "string",
+          "example" : "example 1"
+        },
+        "ratiosPrimary" : {
+          "type" : "string",
+          "example" : "example 1"
+        },
+        "ratiosSecondary" : {
+          "type" : "string",
+          "example" : "example 1"
+        },
+        "ratio" : {
+          "type" : "string",
+          "example" : "example 1"
+        },
+        "authenticationLevel" : {
+          "type" : "string",
+          "example" : "leve 1"
+        },
+        "authenticationPassword" : {
+          "type" : "string",
+          "example" : "pass"
+        },
+        "authenticationUser" : {
+          "type" : "string",
+          "example" : "user1"
+        }
+      }
+    },
+    "servicePoint" : {
+      "properties" : {
+        "servicePointId" : {
+          "type" : "string",
+          "example" : 123
+        },
+        "servicePointDescription" : {
+          "type" : "string",
+          "example" : "point EEUU"
+        }
+      }
+    },
+    "agent" : {
+      "properties" : {
+        "agentId" : {
+          "type" : "string",
+          "example" : 123
+        },
+        "agentDescription" : {
+          "type" : "string",
+          "example" : "point EEUU"
+        },
+        "agentRoles" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "Abby Analyst"
+          }
+        }
+      }
+    },
+    "servicePointVariable" : {
+      "properties" : {
+        "channel" : {
+          "type" : "number",
+          "example" : 123
+        },
+        "logNumber" : {
+          "type" : "number",
+          "example" : 123
+        },
+        "intervalSize" : {
+          "type" : "number",
+          "example" : 123
+        },
+        "ke" : {
+          "type" : "integer",
+          "example" : 204
+        },
+        "ct" : {
+          "type" : "integer",
+          "example" : 5.423
+        },
+        "pt" : {
+          "type" : "integer",
+          "example" : 4.56
+        },
+        "sf" : {
+          "type" : "integer",
+          "example" : 2.39
+        },
+        "factor" : {
+          "type" : "number",
+          "example" : 123
+        },
+        "readingType" : {
+          "type" : "string",
+          "example" : "Backup 1.2"
+        },
+        "lastReadDate" : {
+          "type" : "string",
+          "format" : "date",
+          "example" : "2019-01-01"
+        },
+        "registersNumber" : {
+          "type" : "string",
+          "example" : "registro 33"
+        },
+        "eventsCode" : {
+          "type" : "string",
+          "example" : true
+        },
+        "variableId" : {
+          "type" : "string",
+          "example" : "KRD"
+        },
+        "customName" : {
+          "type" : "string",
+          "example" : "ftr"
+        },
+        "unitOfMeasure" : {
+          "type" : "string",
+          "example" : "ftr"
+        }
+      }
+    },
+    "relationDevice" : {
+      "properties" : {
+        "relationStartDate" : {
+          "type" : "string",
+          "format" : "date",
+          "example" : "2019-01-01"
+        },
+        "relationEndDate" : {
+          "type" : "string",
+          "format" : "date",
+          "example" : "2019-01-01"
+        },
+        "deviceId" : {
+          "type" : "string",
+          "example" : 123
+        },
+        "servicePointId" : {
+          "type" : "string",
+          "example" : 543
+        }
+      }
+    }
+  },
+  "host" : "localhost:5000",
+  "schemes" : [ "http", "https" ]
 }
