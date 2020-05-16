@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 flask = "*"
+pandas = "==1.0.3"
+requests = "==2.23.0"
 
 [requires]
 python_version = "3.6"

@@ -1,0 +1,19 @@
+version: '3'
+services: 
+    mongodbc:
+        image: mongo
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: example 
+        ports:
+        - "27017:27017"
+        networks:
+            - api2
+
+    api:
+        build: .
+        networks:
+            - api2
+networks:
+    api2:

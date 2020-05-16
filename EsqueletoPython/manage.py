@@ -1,10 +1,12 @@
 import  os
-from flask import Flask
-app = Flask(__name__)
+import json
+import time
+from app.services.region_all_service import RegionAllService
 
-@app.route("/")
 def main():
-    return os.environ["example"] 
+    print("llego aca")
+    RegionAllService().create_region()
+    return True
 
 if __name__ == "__main__":
-    app.run()
+    main()
